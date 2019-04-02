@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ISBN</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{ book.isbn }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.price }}</td>
+      <td>
+        <span class=" float-right">
+          <button (click)="onSelectBook(book.isbn)" class="btn btn-outline-primary mb-1 btn-sm">DETAILS</button>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

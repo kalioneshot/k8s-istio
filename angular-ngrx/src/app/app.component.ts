@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from './store/states/app.state';
 import { Store, select } from '@ngrx/store';
 import { GetConfigAction } from './store/actions/config.action';
-import { ConfigSelector } from './store/selectors/config.selector';
 
 @Component({
   selector: 'app-root',

@@ -1,0 +1,5 @@
+<div class="container">
+  <div class="row-m-t">
+      <app-books [books]="books$ | async" (bookSelected)="getActionBook($event)"></app-books>
+  </div>
+</div>

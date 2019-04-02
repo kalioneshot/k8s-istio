@@ -13,11 +13,11 @@ COPY package*.json ./
 # Install dependecies
 RUN npm install
 
-# Copy the rest of the project into the image
+# Copy the rest of the project into the image after npm install instruction.
 COPY . .
 
 # Run the angular in product
-RUN npm run build-prod
+RUN npm run build
 
 # The base image nginx:1.13.12-alpine
 FROM nginx:1.13.12-alpine
