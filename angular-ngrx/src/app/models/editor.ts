@@ -1,3 +1,3 @@
 export interface Editor {
-  name: String;
+  name: string;
 }
