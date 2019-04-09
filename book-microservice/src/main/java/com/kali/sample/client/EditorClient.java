@@ -15,15 +15,16 @@ import com.kali.sample.dto.Editor;
  * 
  * @RegisterRestClient allows Quarkus to know that this interface is meant to be
  *                     available for CDI injection as a REST Client
+ * 
  * @author kali
  *
  */
 @Path("/editor")
+@Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient
 public interface EditorClient {
 
 	@GET
 	@Path("/{isbn}")
-	@Produces(MediaType.APPLICATION_JSON)
 	Editor getByIsbn(@PathParam("isbn") String isbn);
 }

@@ -5,7 +5,7 @@ public class Editor extends Dto {
 	private String name;
 	private String isbn;
 
-	public Editor(String id, String name, String isbn) {
+	public Editor(String id,String isbn, String name) {
 		this.setId(id);
 		this.name = name;
 		this.isbn = isbn;

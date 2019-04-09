@@ -11,14 +11,12 @@
 		<surefire-plugin.version>2.22.0</surefire-plugin.version>
 		<maven.compiler.target>1.10</maven.compiler.target>
 		<maven.compiler.source>1.10</maven.compiler.source>
-		<quarkus.version>0.12.0</quarkus.version>
-		<microprofile.version>2.2</microprofile.version>
+		<quarkus.version>0.13.0</quarkus.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<microprofile.version>2.2</microprofile.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
-			<!-- Optionally use a BOM file to omit the version of the different Quarkus 
-				dependencies. -->
 			<dependency>
 				<groupId>io.quarkus</groupId>
 				<artifactId>quarkus-bom</artifactId>
@@ -29,7 +27,6 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
-		<!-- Development of REST application -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-resteasy-jsonb</artifactId>
@@ -59,10 +56,13 @@
 			<artifactId>rest-assured</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-openapi</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
-			<!-- Use the Quarkus Maven plugin that will hook into the build process. -->
 			<plugin>
 				<groupId>io.quarkus</groupId>
 				<artifactId>quarkus-maven-plugin</artifactId>
@@ -88,7 +88,6 @@
 	</build>
 	<profiles>
 		<profile>
-			<!-- Use a native profile and plugin to activate GraalVM compilation. -->
 			<id>native</id>
 			<activation>
 				<property>
@@ -112,10 +111,6 @@
 							</execution>
 						</executions>
 					</plugin>
-					<!-- If you want to test your native executable with Integration Tests, 
-						add the following plugin configuration. Test names *IT and annotated @SubstrateTest 
-						will be run against the native executable. See the Native executable guide 
-						for more info. -->
 					<plugin>
 						<artifactId>maven-failsafe-plugin</artifactId>
 						<version>${surefire-plugin.version}</version>

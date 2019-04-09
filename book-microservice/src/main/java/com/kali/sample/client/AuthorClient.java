@@ -30,6 +30,6 @@ public interface AuthorClient {
 
 	@GET
 	@Path("/exception/{isbn}")
-	public Author getByIsbnBis(@PathParam("isbn") String isbn);
+	Author getByIsbnBis(@PathParam("isbn") String isbn);
 
 }
