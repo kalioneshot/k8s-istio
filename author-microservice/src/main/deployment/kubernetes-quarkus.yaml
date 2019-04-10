@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: author-quarkus
+  labels:
+    app: author-quarkus
+spec:
+  selector:
+    app: author-quarkus
+  ports:
+    - port: 8080
+      name: http
+  type: NodePort
+---
+
+kind: Deployment
+apiVersion: apps/v1beta1
+metadata:
+  name: author-quarkus
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: author-quarkus
+        version: v1
+    spec:
+      containers:
+      - name: author-quarkus
+        image: author-quarkus:1
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always
